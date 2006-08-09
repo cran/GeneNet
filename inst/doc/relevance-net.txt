@@ -1,0 +1,60 @@
+
+#######################################################################
+# Note that this note can directly be run in R.
+# Version: GeneNet 1.0.0 (GeneNet 2006)
+#######################################################################
+
+
+# this example shows how to estimate a relevance correlation-based
+# network using the functions in GeneTS
+
+
+library("GeneNet")  
+
+# example data
+data(ecoli)
+n <- dim(ecoli)[1] # sample size
+p <- dim(ecoli)[2] # dimension/number of genes
+
+
+# estimate (partial) correlations and put them into into a sorted list
+c  <- ggm.list.edges( cor.shrink(ecoli) )   # correlations
+colnames(c)[1] <- "cor"
+pc <- ggm.list.edges( pcor.shrink(ecoli) )  # partial correlations
+
+
+# estimate degrees of freedom of null distribution
+mfit  <- cor.fit.mixture(pc[,1], df=7, plot.locfdr=FALSE)
+pc.kappa <- mfit$kappa        # partial correlation
+c.kappa  <- pc.kappa + (p-2)  # correlations
+
+
+# determine p-values and q-values for partial correlations
+pc.pval <- cor0.test(pc[,1], pc.kappa)
+pc.fdr.out <- fdr.control(pc.pval, eta0=mfit$eta0)
+pc.qval <- pc.fdr.out$qvalues
+pc.fdr.out$num.significant
+pc <- cbind(pc, pc.pval, pc.qval)
+
+
+# determine p-values and q-values for correlations
+c.pval <- cor0.test(c[,1], c.kappa)
+c.fdr.out <- fdr.control(c.pval, eta0=mfit$eta0)
+c.qval <- c.fdr.out$qvalues
+c.fdr.out$num.significant
+c <- cbind(c, c.pval, c.qval)
+
+
+# list significant edges
+pc[pc.fdr.out$significant,]    # in this example: 102 edges
+c[c.fdr.out$significant,]      # in this example: 5137 edges
+
+
+# note: in this example data many genes are correlated with each other, 
+# hence the relevance network (correlation graph) exhibits a large
+# number of edges.  This shows that relevance networks are a good idea
+# to figure to figure out which genes are (linearly) *independent*, but not
+# which ones are dependent (for this you need the partial correlations).
+
+
+

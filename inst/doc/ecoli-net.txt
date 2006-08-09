@@ -1,0 +1,98 @@
+#######################################################################
+# Note that this note can directly be run in R.
+# Version: GeneNet 1.0.0 (August 2006)
+#######################################################################
+
+
+# This reproduces the "Ecoli" network example is from:
+
+# Schaefer, J., and K. Strimmer, K. 2005c.  A shrinkage approach
+# to large-scale covariance estimation and implications for
+# functional genomics.   Statist. Appl.  Genet. Mol. Biol. 4: 32
+# http://www.bepress.com/sagmb/vol4/iss1/art32/
+
+
+
+
+# load GeneNet library
+library("GeneNet")
+
+# Example E. Coli data set (102 genes, 9 time points)
+data(ecoli)
+dim(ecoli)
+
+
+##### INFER GGM NETWORK #####
+
+
+###
+### Step 1: Estimate partial correlation matrix
+###
+
+# there are many options for estimation the partial correlations
+# - we recommend to use a shrinkage estimator 
+
+inferred.pcor <- ggm.estimate.pcor(ecoli)
+dim(inferred.pcor)
+
+
+###
+### Step 2: Assign p-values, q-values, empirical posterior probabilites to each edge
+###
+
+test.results <- ggm.test.edges(inferred.pcor)
+
+# show first 20 edges
+test.results[1:20,]
+
+# parameters of the mixture distribution used to compute p-values etc.
+c <- cor.fit.mixture(sm2vec(inferred.pcor) )
+c$eta0
+c$kappa
+
+
+
+###
+### Step 3: Decide which edges to include in the network
+###
+
+# variant 1:
+# how many edges are significant based on FDR cutoff Q=0.05 ?
+significant1.idx <- test.results$qval <= 0.05
+num.significant.1 <- sum(significant1.idx)
+test.results[significant1.idx,]  # list significant edges
+
+
+# variant 2:
+# how many edges are significant based on "local fdr" 0.2 cutoff (prob > 0.80) ?
+significant2.idx <- test.results$prob > 0.80
+num.significant.2 <- sum(significant2.idx)
+test.results[significant2.idx,] # list significant edges
+
+
+##### PLOT GGM NETWORK #####
+
+
+# Note: this requires the "graph" and "Rgraphviz" 
+# packages from www.bioconductor.org 
+
+
+# generate graph object with all significant edges
+node.labels <- colnames(ecoli)
+gr <- ggm.make.graph( test.results[significant2.idx,], node.labels, drop.singles=TRUE) 
+gr 
+
+# print vector of edge weights
+show.edge.weights(gr)
+
+
+# plot network
+#pdf(width=12, height=9, file="ecoli1.pdf")
+ggm.plot.graph(gr,  main="Ecoli Network", show.edge.labels=FALSE)
+#dev.off()
+
+
+#pdf(width=12, height=9, file="ecoli2.pdf")
+ggm.plot.graph(gr,  main="Ecoli Network", show.edge.labels=TRUE)
+#dev.off()
+
