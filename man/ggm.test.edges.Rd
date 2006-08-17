@@ -86,7 +86,7 @@ test.results[1:num.significant.1,]
 
 # how many are significant based on "local fdr" cutoff (prob > 0.95) ?
 num.significant.2 <- sum(test.results$prob > 0.95)
-test.results[1:num.significant.2,]
+test.results[test.results$prob > 0.95,]
 
 # parameters of the mixture distribution used to compute p-values etc.
 c <- cor.fit.mixture(sm2vec(inferred.pcor))

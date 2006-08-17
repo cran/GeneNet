@@ -1,4 +1,4 @@
-### cor.fit.mixture.R  (2006-03-10)
+### cor.fit.mixture.R  (2006-08-17)
 ###
 ###    Fit mixture model to empirical distribution of (partial)
 ###    correlation coefficients.
@@ -33,8 +33,13 @@ cor.fit.mixture <- function(r, df=7, plot.locfdr=0)
      require("locfdr")
      
      out <- locfdr(z.transform(r), df=df, plot=plot.locfdr)
-     eta0 <- as.double( out$fp0[3] ) # p0
-     sigma <- as.double( out$fp0[2] ) # sig
+     #eta0 <- as.double( out$fp0[3] ) # p0
+     #sigma <- as.double( out$fp0[2] ) # sig
+     
+     # locfdr version >= 1.1-1
+     sigma <- as.double( out$fp0[5,2] ) # sigma, central matching algorithm
+     eta0 <- as.double( out$fp0[5,3] ) # p0, central matching algorithm
+     
      kappa <- 1/(sigma*sigma) + 2 # Fisher's rule
      prob.nonzero <- 1-out$fdr
   
