@@ -1,3 +1,27 @@
+
+		CHANGES IN GeneNet VERSION 1.1.0
+
+Newly added:
+- arth800:         new example data from A. thaliana Affymetrix 
+                   time series experiment
+- ggm.make.dot:    utility function for network plotting 
+                   (produces dot files for use with graphviz)
+Removed:
+- dcor0:           the density and distribution function for correlation
+                   have been moved into the "fdrtool" package 
+- cor.fit.mixture: this function is not necessary any more, as a similar
+                   function is available in the "fdrtool" package
+
+Changes:
+- examples scripts were changed to include examples for A.thaliana
+  and for plotting using ggm.make.dot() 
+- the function ggm.test.edges() was changed internally to use fdrtool()
+  rather than cor.fit.mixture() and locfdr() 
+- all fdr/Fdr calculations for edge testing are now done using 
+  the "fdrtool" package, so the dependency from "locfdr" was removed
+
+
+
 		CHANGES IN GeneNet VERSION 1.0.1
 
 

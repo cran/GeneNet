@@ -1,6 +1,6 @@
 #######################################################################
 # Note that this note can directly be run in R.
-# Version: GeneNet 1.0.0 (August 2006)
+# Version: GeneNet 1.1.0 (February 2007)
 #######################################################################
 
 
@@ -40,28 +40,46 @@ pc4 <- ggm.estimate.pcor(tc44, method="dynamic")           # dynamic, with shrin
 t1 <- ggm.test.edges(pc1)
 s1.idx <- t1$prob > 0.80
 num.s1 <- sum(s1.idx)
-t1[s1.idx,] # 12 significant edges
+t1[s1.idx,] # 31 significant edges
 
 # dynamic, no shrinkage
 t2 <- ggm.test.edges(pc2)
 s2.idx <- t2$prob > 0.80
 num.s2 <- sum(s2.idx)
-t1[s2.idx,] # 54 significant edges
+t1[s2.idx,] # 55 significant edges
 
 # static, with shrinkage
 t3 <- ggm.test.edges(pc3)
 s3.idx <- t3$prob > 0.80
 num.s3 <- sum(s3.idx)
-t1[s3.idx,] # 15 significant edges
+t1[s3.idx,] # 10 significant edges
 
 # dynamic, with shrinkage
 t4 <- ggm.test.edges(pc4)
 s4.idx <- t4$prob > 0.80
 num.s4 <- sum(s4.idx)
-t1[s4.idx,] # 82 significant edges
+t1[s4.idx,] # 49 significant edges
 
 
-# make graphs
+######## produce plots using graphviz ###########
+
+
+# produce dot file (without edge labels)
+node.labels <- colnames(tc44)
+ggm.make.dot(filename="net1.dot", t1[s1.idx,], node.labels, main="Static")
+ggm.make.dot(filename="net2.dot", t1[s1.idx,], node.labels, main="Dynamic")
+ggm.make.dot(filename="net3.dot", t1[s1.idx,], node.labels, main="Static + Shrink")
+ggm.make.dot(filename="net4.dot", t1[s1.idx,], node.labels, main="Dynamic + Shrink")
+
+# call graphviz to produce a nice graph
+system("fdp -T svg -o net1.svg net1.dot") # SVG format
+system("fdp -T svg -o net2.svg net2.dot") # SVG format
+system("fdp -T svg -o net3.svg net3.dot") # SVG format
+system("fdp -T svg -o net4.svg net4.dot") # SVG format
+
+
+
+######## produce plots using Rgraphviz ###########
 
 node.labels <- colnames(tc44)
 gr1 <- ggm.make.graph( t1[s1.idx,], node.labels, drop.singles=TRUE) 

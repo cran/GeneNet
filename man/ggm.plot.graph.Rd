@@ -1,11 +1,13 @@
 \name{ggm.plot.graph}
 \alias{ggm.plot.graph}
 \alias{ggm.make.graph}
+\alias{ggm.make.dot}
 \alias{show.edge.weights}
 
 \title{Graphical Gaussian Models: Plotting the Network}
 
 \usage{
+ggm.make.dot(filename, edge.list, node.labels, main=NULL, show.edge.labels=FALSE)
 ggm.make.graph(edge.list, node.labels, drop.singles=FALSE)
 show.edge.weights(gr)
 ggm.plot.graph(gr, 
@@ -14,16 +16,22 @@ ggm.plot.graph(gr,
 }
 
 \arguments{
+  \item{filename}{name of file containg the "dot" commands for graphviz}
+  
   \item{edge.list}{a data frame, as obtained by \code{\link{ggm.test.edges}}, listing all
           edges to be included in the graph}
   \item{node.labels}{a vector with labels for each node (will be converted to type character)} 
+  \item{main}{title included in plot}
+  \item{show.edge.labels}{plot correlation values as edge labels (default: FALSE)}
   \item{drop.singles}{remove unconnected nodes}
   \item{gr}{a graph object}
   \item{layoutType}{type of plot of the graph. Defaults to "fdp".}
-  \item{show.edge.labels}{plot correlation values as edge labels (default: FALSE)}
   \item{\dots}{options passed to \code{plot} functions}
 }
 \description{
+  \code{ggm.make.dot} converts an edge list as obtained by \code{\link{ggm.test.edges}}
+  into a "dot" file that can directly be used for plotting the network with graphviz.
+
   \code{ggm.make.graph} converts an edge list as obtained by \code{\link{ggm.test.edges}}
   into a graph object.
 
@@ -38,24 +46,16 @@ ggm.plot.graph(gr,
 }
 
 \details{
-  The network plotting functions require the installation of the "graph" and "Rgraphviz" R
-  packages. These are available from the Bioconductor website
-  (\url{http://www.bioconductor.org}).  Note that it is not necessary to install the
-  complete set of Bioconductor packages, only "graph" and "Rgraphviz" are needed by the
-  GeneNet package (however, these may in turn require additional packages from Bioconductor).
+  For network plotting the software "graphviz" is employed (\url{http://www.graphviz.org}).
 
-  \code{ggm.plot.graph} is a utility function to plot a graph in "dfp" layout format.
-  The line width and color depends on the relative strength of the partial correlation 
-  assigned to an edge: the top 80%-100% edges are drawn in "black" with "lwd=2", 
-  the range from 20% to 80% will be drawn in "black" with "lwd=1", and the lower
-  20% will be plotted in "grey" with "lwd=1".
-  
-  The "Rgraphviz" package offers many other options - please consult the manual of
-  "Rgraphviz" for the details.
-
+  For the functions \code{ggm.plot.graph} and \code{ggm.make.graph}  the "graph" and "Rgraphviz" 
+  infrastructure from the  Bioconductor project (\url{http://www.bioconductor.org}) is required. 
  
 }
 \value{
+  \code{ggm.make.dot} produces a "dot" network description file that
+  can directly be fed into graphviz in order to produce a plot of a network.
+
   \code{ggm.make.graph} returns a graph object, suitable for plotting with functions from
   the "Rgraphviz" library.
   
@@ -81,19 +81,29 @@ true.pcor <- ggm.simulate.pcor(20, 0.1)
 # convert to edge list 
 test.results <- ggm.list.edges(true.pcor)[1:19,]
 
-# generate graph object 
-# NOTE: this requires the installation of the "graph" package
-# (in the following "try" is used to avoid an error if the library is not installed)
-nlab <- LETTERS[1:20]
-try( gr <- ggm.make.graph( test.results, nlab) )
-try( gr )
-try( show.edge.weights(gr) )
-try( gr2 <- ggm.make.graph( test.results, nlab, drop.singles=TRUE) )
-try( gr2 )
+########  use graphviz directly to produce a plot ##########
+
+# uncomment for actual use!
+
+# nlab <- LETTERS[1:20]
+# ggm.make.dot(filename="test.dot", test.results, nlab, main = "A graph") 
+# system("fdp -T svg -o test.svg test.dot") # SVG format
+
+
+########  use Rgraphviz produce a plot ##########
+
+# uncomment for actual use!
+
+# nlab <- LETTERS[1:20]
+# gr <- ggm.make.graph( test.results, nlab) 
+# gr 
+# show.edge.weights(gr) 
+# gr2 <- ggm.make.graph( test.results, nlab, drop.singles=TRUE) 
+# gr2 
 
 # plot network
 # NOTE: this requires the installation of the "Rgraphviz" library
-try ( ggm.plot.graph(gr, main = "A graph"))
-try ( ggm.plot.graph(gr2, main = "The same graph with singles removed" ))
+# ggm.plot.graph(gr, main = "A graph")
+# ggm.plot.graph(gr2, main = "The same graph with singles removed" )
 }
 \keyword{hplot}

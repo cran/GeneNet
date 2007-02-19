@@ -6,13 +6,12 @@
 
 \usage{
 ggm.list.edges(r.mat)
-ggm.test.edges(r.mat, df=7, plot.locfdr=1)
+ggm.test.edges(r.mat, ...)
 }
 
 \arguments{
   \item{r.mat}{matrix of partial correlations}
-  \item{df}{degrees of freedom for the spline fitting the density (only if fA.type="nonparametric")}
-  \item{plot.locfdr}{controls plot option in \code{locfdr} }
+  \item{\dots}{parameters passed on to \code{\link[fdrtool]{fdrtool}} }
 }
 \description{
  \code{ggm.list.edges} returns a table with all correlations sorted according to magnitude,
@@ -23,15 +22,10 @@ ggm.test.edges(r.mat, df=7, plot.locfdr=1)
 }
 
 \details{
-  A mixture model is fitted to the partial correlations using \code{\link{cor.fit.mixture}}
-  Subsequently, two-sided p-values to test non-zero correlation are computed for each edge using 
-  \code{\link{cor0.test}}. In addition, corresponding posterior probabilities are
-  computed (also using \code{\link{cor.fit.mixture}}.  Finally, to simplify multiple testing q-values
-  are computed via  \code{\link[fdrtool]{fdr.control}} whith the specified value of \code{eta0} taken
-  into account.
+  A mixture model is fitted to the partial correlations using \code{\link[fdrtool]{fdrtool}}.  This is used to compute (i)  two-sided p-values to test non-zero correlation,
+(ii) corresponding posterior probabilities (= 1- local fdr), as well as (iii) tail area-based q-values.
 
-  Theoretical details are explained in Schaefer and Strimmer (2005), along with a simulation
-  study and an application to gene expression data.
+  Theoretical details are explained in Schaefer and Strimmer (2005), along with a simulation study and an application to gene expression data.
 }
 \value{
   A sorted data frame with the following columns:
@@ -57,7 +51,6 @@ ggm.test.edges(r.mat, df=7, plot.locfdr=1)
   large-scale gene association networks. \emph{Bioinformatics} \bold{21}:754-764.
 }
 \seealso{
-\code{\link{cor.fit.mixture}},
 \code{\link{cor0.test}},
 \code{\link[fdrtool]{fdr.control}},
 \code{\link{ggm.estimate.pcor}}.
@@ -89,8 +82,7 @@ num.significant.2 <- sum(test.results$prob > 0.95)
 test.results[test.results$prob > 0.95,]
 
 # parameters of the mixture distribution used to compute p-values etc.
-c <- cor.fit.mixture(sm2vec(inferred.pcor))
-c$eta0
-c$kappa
+c <- fdrtool(sm2vec(inferred.pcor), statistic="correlation")
+c$param
 }
 \keyword{htest}

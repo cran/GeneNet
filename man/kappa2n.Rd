@@ -25,7 +25,7 @@ n2kappa(n, p=2)
   i.e. whether simple or partial correlation coefficients are being considered.
   For p=2 (simple correlation coefficient) the degree of freedom equals \code{kappa = n-1},
   whereas for arbitrary p (with p-2 variables eliminated in the partial correlation coefficient)
-  \code{kappa = n-p+1} (see also \code{\link{dcor0}}).
+  \code{kappa = n-p+1} (see also \code{\link[fdrtool]{dcor0}}).
  
 
 }
@@ -41,7 +41,7 @@ n2kappa(n, p=2)
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 
-\seealso{\code{\link{dcor0}}.}
+\seealso{\code{\link[fdrtool]{dcor0}}.}
 
 \examples{
 # load GeneNet library

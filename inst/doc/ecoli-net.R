@@ -1,6 +1,6 @@
 #######################################################################
 # Note that this note can directly be run in R.
-# Version: GeneNet 1.0.0 (August 2006)
+# Version: GeneNet 1.1.0 (February 2007)
 #######################################################################
 
 
@@ -10,7 +10,6 @@
 # to large-scale covariance estimation and implications for
 # functional genomics.   Statist. Appl.  Genet. Mol. Biol. 4: 32
 # http://www.bepress.com/sagmb/vol4/iss1/art32/
-
 
 
 
@@ -40,15 +39,15 @@ dim(inferred.pcor)
 ### Step 2: Assign p-values, q-values, empirical posterior probabilites to each edge
 ###
 
+# parameters of the mixture distribution used to compute p-values etc.
+c <- fdrtool(sm2vec(inferred.pcor), statistic="correlation")
+c$param
+
+
 test.results <- ggm.test.edges(inferred.pcor)
 
 # show first 20 edges
 test.results[1:20,]
-
-# parameters of the mixture distribution used to compute p-values etc.
-c <- cor.fit.mixture(sm2vec(inferred.pcor) )
-c$eta0
-c$kappa
 
 
 
@@ -72,14 +71,46 @@ test.results[significant2.idx,] # list significant edges
 
 ##### PLOT GGM NETWORK #####
 
+#########################################################
+## variant 1: produce "dot" file for use with "graphviz"
+##            (see http://www.graphviz.org/ )
+#########################################################
 
-# Note: this requires the "graph" and "Rgraphviz" 
-# packages from www.bioconductor.org 
+node.labels <- colnames(ecoli)
+
+# produce dot file (without edge labels)
+ggm.make.dot(filename="ecoli.dot", 
+             test.results[significant2.idx,], node.labels,
+             main="Ecoli Network")
+
+# call graphviz to produce a nice graph
+system("fdp -T svg -o ecoli.svg ecoli.dot") # SVG format
+system("fdp -T ps2 -o ecoli.eps ecoli.dot") # EPS format
+
+
+
+# produce dot file (with edge labels)
+ggm.make.dot(filename="ecoli.dot", 
+             test.results[significant2.idx,], node.labels,
+             show.edge.labels=TRUE, main="Ecoli Network")
+
+# call graphviz to produce a nice graph
+system("fdp -T svg -o ecoli.svg ecoli.dot") # SVG format
+system("fdp -T ps2 -o ecoli.eps ecoli.dot") # EPS format
+
+
+
+#########################################################
+## variant 2: use "Rgrapviz" and related packages 
+##            from http://www.bioconductor.org
+#########################################################
+
 
 
 # generate graph object with all significant edges
 node.labels <- colnames(ecoli)
-gr <- ggm.make.graph( test.results[significant2.idx,], node.labels, drop.singles=TRUE) 
+gr <- ggm.make.graph( test.results[significant2.idx,], 
+         node.labels, drop.singles=TRUE) 
 gr 
 
 # print vector of edge weights

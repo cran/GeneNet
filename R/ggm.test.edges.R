@@ -1,8 +1,8 @@
-### ggm.test.edges  (2006-03-10)
+### ggm.test.edges  (2007-02-17)
 ###
 ###   Compute p-values, q-values and posterior probabilities for GGM edges
 ###
-### Copyright 2003-06 Juliane Schaefer and Korbinian Strimmer
+### Copyright 2003-07 Juliane Schaefer and Korbinian Strimmer
 ###
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
@@ -44,23 +44,17 @@ ggm.list.edges <- function(r.mat)
 
 
 # assign p-values, q-values and posterior probabilities to each edge
-ggm.test.edges <- function(r.mat, df=7, plot.locfdr=1)
+ggm.test.edges <- function(r.mat, ...)
 {
    w <- ggm.list.edges(r.mat)
    pc <- w[,1]
     
    # estimate kappa and eta0
-   mfit <- cor.fit.mixture(pc, df=df, plot.locfdr=plot.locfdr)
-   kappa <-  mfit$kappa
-   eta0 <- mfit$eta0  
+   fdr.out <- fdrtool(pc, statistic="correlation", ...)
+   pval <- fdr.out$pval
+   qval <- fdr.out$qval
+   prob <- 1-fdr.out$lfdr
       
-   pval <- cor0.test(pc, kappa)
-   fdr.out <- fdr.control(pval, eta0=eta0)
-   qval <- fdr.out$qvalues
-   
-   prob <- mfit$prob.nonzero
-   
-   
    result <- cbind(w, pval, qval, prob)
 
    
