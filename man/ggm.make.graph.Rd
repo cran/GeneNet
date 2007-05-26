@@ -1,18 +1,16 @@
-\name{ggm.plot.graph}
-\alias{ggm.plot.graph}
+\name{ggm.make.graph}
 \alias{ggm.make.graph}
 \alias{ggm.make.dot}
+\alias{network.make.dot}
 \alias{show.edge.weights}
 
 \title{Graphical Gaussian Models: Plotting the Network}
 
 \usage{
 ggm.make.dot(filename, edge.list, node.labels, main=NULL, show.edge.labels=FALSE)
+network.make.dot(filename, edge.list, node.labels, main=NULL, show.edge.labels=FALSE)
 ggm.make.graph(edge.list, node.labels, drop.singles=FALSE)
 show.edge.weights(gr)
-ggm.plot.graph(gr, 
-    layoutType=c("fdp", "neato", "circo", "dot", "twopi"), 
-    show.edge.labels=FALSE, \dots)
 }
 
 \arguments{
@@ -25,12 +23,13 @@ ggm.plot.graph(gr,
   \item{show.edge.labels}{plot correlation values as edge labels (default: FALSE)}
   \item{drop.singles}{remove unconnected nodes}
   \item{gr}{a graph object}
-  \item{layoutType}{type of plot of the graph. Defaults to "fdp".}
   \item{\dots}{options passed to \code{plot} functions}
 }
 \description{
   \code{ggm.make.dot} converts an edge list as obtained by \code{\link{ggm.test.edges}}
   into a "dot" file that can directly be used for plotting the network with graphviz.
+
+ \code{network.make.dot} is just an alias to \code{ggm.make.dot}.
 
   \code{ggm.make.graph} converts an edge list as obtained by \code{\link{ggm.test.edges}}
   into a graph object.
@@ -40,9 +39,6 @@ ggm.plot.graph(gr,
   This function is convenient to gain a first impression of the graph (in particular if
   the "Rgraphviz" library is not installed). 
 
-  \code{ggm.plot.graph} visualizes the network structure of the graphical Gaussian model 
-  using the Rgraphviz network plot package. The correlation coefficients can be 
-  printed as edge labels.
 }
 
 \details{
@@ -61,10 +57,10 @@ ggm.plot.graph(gr,
   
   \code{show.edge.weights} returns a vector of weights for all edges contained in a graph.
   
-  \code{ggm.plot.graph} plots  the network on the current graphic device.
 }
 \author{
-  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}) and
+  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}),
+  Rainer Opgen-Rhein (\url{http://opgen-rhein.de}) and
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 \seealso{
@@ -103,7 +99,7 @@ test.results <- ggm.list.edges(true.pcor)[1:19,]
 
 # plot network
 # NOTE: this requires the installation of the "Rgraphviz" library
-# ggm.plot.graph(gr, main = "A graph")
-# ggm.plot.graph(gr2, main = "The same graph with singles removed" )
+# library("Rgraphviz")
+# plot(gr)
 }
 \keyword{hplot}

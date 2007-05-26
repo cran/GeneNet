@@ -1,5 +1,6 @@
 \name{GeneNet-internal}
 \alias{myrmvnorm}
+\alias{ggm.list.edges}
 
 
 

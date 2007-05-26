@@ -1,8 +1,8 @@
-### ggm.test.edges  (2007-02-17)
+### ggm.test.edges  (2007-05-25)
 ###
-###   Compute p-values, q-values and posterior probabilities for GGM edges
+###   Compute p-values, q-values and posterior probabilities for network edges
 ###
-### Copyright 2003-07 Juliane Schaefer and Korbinian Strimmer
+### Copyright 2003-07 Juliane Schaefer, Rainer Opgen-Rhein and Korbinian Strimmer
 ###
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
@@ -41,24 +41,85 @@ ggm.list.edges <- function(r.mat)
 }
 
 
-
+network.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, 
+   df.ggm=7, df.dir=7, plot=TRUE, ...)
+{
+  return( ggm.test.edges(r.mat, fdr=fdr, direct=direct, df.ggm=df.ggm,
+    df.dir=df.dir, plot=plot, ...) )
+}
 
 # assign p-values, q-values and posterior probabilities to each edge
-ggm.test.edges <- function(r.mat, ...)
+ggm.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, df.ggm=7, df.dir=7, plot=TRUE, ...)
 {
-   w <- ggm.list.edges(r.mat)
-   pc <- w[,1]
-    
-   # estimate kappa and eta0
-   fdr.out <- fdrtool(pc, statistic="correlation", ...)
-   pval <- fdr.out$pval
-   qval <- fdr.out$qval
-   prob <- 1-fdr.out$lfdr
-      
+   pcor <- sm2vec(r.mat)
+   indexes <- sm.index(r.mat)
+   colnames(indexes) <- c("node1", "node2")
+   w <- cbind(pcor, indexes)
+   
+   if(fdr==TRUE) 
+   {
+     # fit null distribution to partial correlations and compute pvalues etc
+     
+     cat("Estimate (local) false discovery rates (partial correlations):\n")
+     fdr.out <- fdrtool(w[,1], statistic="correlation", df=df.ggm, plot=plot, ...)
+     pval <- fdr.out$pval
+     qval <- fdr.out$qval
+     prob <- 1-fdr.out$lfdr
+   }
+   else
+   {
+      pval <- rep(NA, length(w[,1]))
+      qval <- pval
+      prob <- pval
+   }
+   
    result <- cbind(w, pval, qval, prob)
 
-   
+   ###########
+
+   if(direct==TRUE)
+   {  
+     spvar<-attr(r.mat, "spv")
+     if(is.null(spvar)) # if not yet available compute standardized partial variances
+     {
+       r.mat.cor <- pcor2cor(r.mat)
+       spvar<-1/diag(solve(r.mat.cor))
+     }
+        
+     p <- length(spvar)
+     r.spvar<-(t(spvar%*%t(rep(1,p)))/(spvar%*%t(rep(1,p))))
+
+     log.spvar <- log(sm2vec(r.spvar))
+    
+     if(fdr==TRUE) 
+     {
+       if(plot==TRUE)
+       {
+         get(getOption("device"))()
+       }
+
+       cat("Estimate (local) false discovery rates (log ratio of spvars):\n")
+       fdr.out <- fdrtool(log.spvar, statistic="normal", df=df.dir,plot=plot,...)
+       pval.dir <- fdr.out$pval
+       qval.dir <- fdr.out$qval
+       prob.dir <- 1 - fdr.out$lfdr
+     }
+     else
+     {
+       pval.dir <- rep(NA, length(w[,1]))
+       qval.dir <- pval.dir
+       prob.dir <- pval.dir
+     }
+
+     result <- cbind(result, log.spvar, pval.dir, qval.dir, prob.dir)
+   }
+
+   ###########
+
+   sort.idx <- order(-abs(result[, 1]))
+   result <- as.data.frame(result[sort.idx, ])
+  
    # return as data frame
-   return(as.data.frame(result))
+   return(result)
 }
 

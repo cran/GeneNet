@@ -1,8 +1,8 @@
-### ggm.make.dot  (2007-02-18)
+### ggm.make.dot  (2007-05-26)
 ###
 ###   Generate Dot File For Graphviz Network Plot
 ###
-### Copyright 2006-07 Korbinian Strimmer
+### Copyright 2006-07 Rainer Opgen-Rhein and Korbinian Strimmer
 ###
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
@@ -21,6 +21,13 @@
 ### Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
 ### MA 02111-1307, USA
 
+network.make.dot <- function(filename, edge.list, node.labels, 
+          main=NULL, show.edge.labels=FALSE)
+return(
+  ggm.make.dot(filename=filename, edge.list=edge.list, 
+     node.labels=node.labels, 
+     main=main, show.edge.labels=show.edge.labels) 
+)
 
 ggm.make.dot <- function(filename, edge.list, node.labels, 
           main=NULL, show.edge.labels=FALSE)
@@ -35,7 +42,7 @@ ggm.make.dot <- function(filename, edge.list, node.labels,
    # thresholds for line width and coloring
    cutoff <- quantile(abs(w), c(0.2, 0.8)) 
 
-   cat("graph G {\n", file=f)
+   cat("Digraph G {\n", file=f)
    cat("K=\"0.3\";\n", file=f)
    cat("ratio=\"0.75\";\n", file=f)
 
@@ -45,10 +52,35 @@ ggm.make.dot <- function(filename, edge.list, node.labels,
      cat("fontsize=20;\n", file=f)
    }
 
+   # check whether we might have directed edges
+   if (ncol(edge.list) == 11) 
+     undirected=FALSE
+   else 
+     undirected=TRUE
+
+
    for(i in 1:length(w))   
    {
-      cat(node.labels[n1[i]], "--", node.labels[n2[i]], "[", file=f)
-       
+      cat(node.labels[n1[i]], "->", node.labels[n2[i]], "[", file=f)
+      
+      if (undirected)
+        cat("dir=\"none\", ", sep="", file=f)
+      else
+      {
+        if(edge.list[i,11]=="1to2")
+        {
+          cat("dir=\"forward\",", file=f)
+        }
+        else if (edge.list[i,11]=="2to1")
+        {
+          cat("dir=\"back\",", file=f)
+        }
+        else
+        {
+          cat("dir=\"none\",", file=f)
+        }
+      } 
+
       if(show.edge.labels)
       {
          cat("label=\"", el[i], "\", ", sep="", file=f)

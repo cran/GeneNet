@@ -1,3 +1,22 @@
+	
+     		CHANGES IN GeneNet VERSION 1.2.0
+
+
+Newly added:
+- this version implements the approach described in Opgen-Rhein and 
+  Strimmer (2007) for estimating partially directed graphs.
+  See the arbidopsis example script for illustration.
+- new utility function extract.network() to simplify the extraction
+  of significant edges.
+
+Changes:
+- the plot function ggm.make.dot() resp. network.make.dot() now
+  produce dot code for partially directed graphs.
+- the function ggm.plot.graph() was removed.
+- all example scripts were updated accordingly.
+- ggm.test.edges now has option "fdr" to allow to skip fdr 
+  computations if necessary.
+
 
 		CHANGES IN GeneNet VERSION 1.1.0
 
