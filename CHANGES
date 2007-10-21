@@ -1,3 +1,16 @@
+            
+                RELEASE HISTORY OF GeneNet PACKAGE
+             ========================================
+
+
+     		CHANGES IN GeneNet VERSION 1.2.1
+
+
+- a number of small internal changes were needed to adjust
+  GeneNet to the new version of the fdrtool package (version 1.2.0).
+- the licence was changed from "GNU GPL 2 or later" to "GNU GPL 3 or later".
+- some parts of the documentation were updated.
+
 	
      		CHANGES IN GeneNet VERSION 1.2.0
 

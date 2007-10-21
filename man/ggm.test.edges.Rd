@@ -6,8 +6,8 @@
 \title{Graphical Gaussian Models: Assess Significance of Edges (and Directions)}
 
 \usage{
-ggm.test.edges(r.mat, fdr=TRUE, direct=FALSE, df.ggm=7, df.dir=7, plot=TRUE, ...)
-network.test.edges(r.mat, fdr=TRUE, direct=FALSE, df.ggm=7, df.dir=7, plot=TRUE, ...)
+ggm.test.edges(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
+network.test.edges(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
 extract.network(network.all, method.ggm=c("prob", "qval","number"), 
       cutoff.ggm=0.8, method.dir=c("prob","qval","number", "all"), 
       cutoff.dir=0.8, verbose=TRUE)
@@ -17,8 +17,6 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
   \item{r.mat}{matrix of partial correlations}
   \item{fdr}{estimate q-values and local fdr}
   \item{direct}{compute additional statistics for obtaining a partially directed network}
-  \item{df.ggm}{df parameter for locfdr (partial correlations)}
-  \item{df.dir}{df parameter for locfdr (directions)}
   \item{plot}{plot density and distribution function and (local) fdr values}
   \item{\dots}{parameters passed on to \code{\link[fdrtool]{fdrtool}} }
   \item{network.all}{list with partial correlations and fdr values for all potential edges
@@ -87,8 +85,7 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
 
   Opgen-Rhein, R., and K. Strimmer. (2007). From correlation to causation networks: 
   a simple approximate learning algorithm and its application to high-dimensional 
-  plant gene expression data. Preprint available from
-  \url{http://strimmerlab.org/publications/causalnet2007.pdf}.
+  plant gene expression data. \emph{BMC Syst. Biol.} \bold{1}:37.
 
 }
 \seealso{

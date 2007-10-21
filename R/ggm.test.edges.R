@@ -1,4 +1,4 @@
-### ggm.test.edges  (2007-05-25)
+### ggm.test.edges  (2007-10-19)
 ###
 ###   Compute p-values, q-values and posterior probabilities for network edges
 ###
@@ -41,15 +41,13 @@ ggm.list.edges <- function(r.mat)
 }
 
 
-network.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, 
-   df.ggm=7, df.dir=7, plot=TRUE, ...)
+network.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
 {
-  return( ggm.test.edges(r.mat, fdr=fdr, direct=direct, df.ggm=df.ggm,
-    df.dir=df.dir, plot=plot, ...) )
+  return( ggm.test.edges(r.mat, fdr=fdr, direct=direct, plot=plot, ...) )
 }
 
 # assign p-values, q-values and posterior probabilities to each edge
-ggm.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, df.ggm=7, df.dir=7, plot=TRUE, ...)
+ggm.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
 {
    pcor <- sm2vec(r.mat)
    indexes <- sm.index(r.mat)
@@ -61,7 +59,7 @@ ggm.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, df.ggm=7, df.dir=7, pl
      # fit null distribution to partial correlations and compute pvalues etc
      
      cat("Estimate (local) false discovery rates (partial correlations):\n")
-     fdr.out <- fdrtool(w[,1], statistic="correlation", df=df.ggm, plot=plot, ...)
+     fdr.out <- fdrtool(w[,1], statistic="correlation", plot=plot, ...)
      pval <- fdr.out$pval
      qval <- fdr.out$qval
      prob <- 1-fdr.out$lfdr
@@ -99,7 +97,7 @@ ggm.test.edges <- function(r.mat, fdr=TRUE, direct=FALSE, df.ggm=7, df.dir=7, pl
        }
 
        cat("Estimate (local) false discovery rates (log ratio of spvars):\n")
-       fdr.out <- fdrtool(log.spvar, statistic="normal", df=df.dir,plot=plot,...)
+       fdr.out <- fdrtool(log.spvar, statistic="normal", plot=plot, ...)
        pval.dir <- fdr.out$pval
        qval.dir <- fdr.out$qval
        prob.dir <- 1 - fdr.out$lfdr

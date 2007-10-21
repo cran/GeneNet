@@ -1,6 +1,6 @@
 ######################################################################
 # This note can be directly run in R.
-# Requires GeneNet 1.2.0 (May 2007)
+# Requires GeneNet 1.2.1 (October 2007)
 #######################################################################
 
 
@@ -9,9 +9,9 @@
 
 # Opgen-Rhein, R., and K. Strimmer. 2007. From correlation to causation 
 # networks: a simple approximate learning algorithm and its application 
-# to high-dimensional plant gene expression data. 
-# Preprint available: http://strimmerlab.org/publications/causalnet2007.pdf
-
+# to high-dimensional plant gene expression data.
+# BMC Syst. Biol. 1: 37.
+ 
 
 # Original source of the data: 
 # Smith et al. 2004. Diurnal changes in the transcriptom encoding 
@@ -62,7 +62,7 @@ pcor.dyn <- ggm.estimate.pcor(arth800.expr, method = "dynamic")
 # step 3: assign (local) fdr values to all possible edges #
 ###########################################################
 
-arth.edges <- network.test.edges(pcor.dyn,direct=TRUE,df.ggm=14, df.dir=29)
+arth.edges <- network.test.edges(pcor.dyn,direct=TRUE)
 
 dim(arth.edges)
 
