@@ -1,8 +1,8 @@
-### ggm.make.dot  (2007-05-26)
+### ggm.make.dot  (2008-08-18)
 ###
 ###   Generate Dot File For Graphviz Network Plot
 ###
-### Copyright 2006-07 Rainer Opgen-Rhein and Korbinian Strimmer
+### Copyright 2006-08 Rainer Opgen-Rhein and Korbinian Strimmer
 ###
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
@@ -61,8 +61,9 @@ ggm.make.dot <- function(filename, edge.list, node.labels,
 
    for(i in 1:length(w))   
    {
-      cat(node.labels[n1[i]], "->", node.labels[n2[i]], "[", file=f)
-      
+      cat("\"", node.labels[n1[i]], "\" -> \"", 
+        node.labels[n2[i]], "\" [", sep="", file = f)
+     
       if (undirected)
         cat("dir=\"none\", ", sep="", file=f)
       else

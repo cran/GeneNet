@@ -3,6 +3,13 @@
              ========================================
 
 
+    		CHANGES IN GeneNet VERSION 1.2.2
+
+- a small bug in ggm.make.dot() was corrected. Now variable names
+  such as "1776837_at" can be plotted properly with graphviz 
+  (this bug fix was kindly provided by Colin Gillespie, Newcastle).
+  
+
      		CHANGES IN GeneNet VERSION 1.2.1
 
 
