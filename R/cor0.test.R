@@ -7,7 +7,7 @@
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
 ### It is made available under the terms of the GNU General Public
-### License, version 2, or at your option, any later version,
+### License, version 3, or at your option, any later version,
 ### incorporated herein by reference.
 ### 
 ### This program is distributed in the hope that it will be
@@ -29,33 +29,33 @@
 # Input:  observed partial correlation r 
 #         degree of freedom kappa
 # Output: p-value
-cor0.test <- function(r, kappa, method=c("student", "dcor0", "ztransform"))
+cor0.test = function(r, kappa, method=c("student", "dcor0", "ztransform"))
 {
-  method <- match.arg(method)
+  method = match.arg(method)
 
   if (method == "student") # exact method
   {
        # t is distributed with df=kappa-1 
-       t <- r*sqrt((kappa-1)/(1-r*r))
+       t = r*sqrt((kappa-1)/(1-r*r))
        
        # two-sided test around zero
-       pval <- 2*pt(-abs(t), df=kappa-1)
+       pval = 2*pt(-abs(t), df=kappa-1)
   }
  
   if (method == "dcor0") # exact method
   {
        # two-sided test around zero
-       pval <- 2*pcor0(-abs(r), kappa)
+       pval = 2*pcor0(-abs(r), kappa)
   }
   
   if (method == "ztransform") # approximate method
   {
     # apply Fisher's z-transform
-    z <- z.transform(r)
+    z = z.transform(r)
     
     # then use two-sided normal test around zero
-    sd <- 1/sqrt(kappa-2)
-    pval <- 2*pnorm(-abs(z), mean=0, sd=sd)
+    sd = 1/sqrt(kappa-2)
+    pval = 2*pnorm(-abs(z), mean=0, sd=sd)
   }
 
   return(pval)

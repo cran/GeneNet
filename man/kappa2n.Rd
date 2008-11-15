@@ -37,7 +37,7 @@ n2kappa(n, p=2)
 
 
 \author{
-  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}) and
+  Juliane Sch\"afer and
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 

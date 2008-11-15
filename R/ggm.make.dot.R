@@ -7,7 +7,7 @@
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
 ### It is made available under the terms of the GNU General Public
-### License, version 2, or at your option, any later version,
+### License, version 3, or at your option, any later version,
 ### incorporated herein by reference.
 ### 
 ### This program is distributed in the hope that it will be
@@ -21,7 +21,7 @@
 ### Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
 ### MA 02111-1307, USA
 
-network.make.dot <- function(filename, edge.list, node.labels, 
+network.make.dot = function(filename, edge.list, node.labels, 
           main=NULL, show.edge.labels=FALSE)
 return(
   ggm.make.dot(filename=filename, edge.list=edge.list, 
@@ -29,10 +29,10 @@ return(
      main=main, show.edge.labels=show.edge.labels) 
 )
 
-ggm.make.dot <- function(filename, edge.list, node.labels, 
+ggm.make.dot = function(filename, edge.list, node.labels, 
           main=NULL, show.edge.labels=FALSE)
 {
-   f <- file(filename, "w")  # open an output file connection
+   f = file(filename, "w")  # open an output file connection
 
    w = edge.list[,1]  # vector of weights
    el = as.character(round(edge.list[,1], digits=4) )
@@ -40,7 +40,7 @@ ggm.make.dot <- function(filename, edge.list, node.labels,
    n2 = edge.list[,3]  
 
    # thresholds for line width and coloring
-   cutoff <- quantile(abs(w), c(0.2, 0.8)) 
+   cutoff = quantile(abs(w), c(0.2, 0.8)) 
 
    cat("Digraph G {\n", file=f)
    cat("K=\"0.3\";\n", file=f)

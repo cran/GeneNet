@@ -7,7 +7,7 @@
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
 ### It is made available under the terms of the GNU General Public
-### License, version 2, or at your option, any later version,
+### License, version 3, or at your option, any later version,
 ### incorporated herein by reference.
 ### 
 ### This program is distributed in the hope that it will be
@@ -24,13 +24,13 @@
 
 
 # sample size corresponding to kappa and G
-kappa2n <- function(kappa, p=2)
+kappa2n = function(kappa, p=2)
 {
   return( kappa+p-1 )
 }
 
 # sample size corresponding to N and G
-n2kappa <- function(n, p=2)
+n2kappa = function(n, p=2)
 {
   return( n-p+1 )
 }

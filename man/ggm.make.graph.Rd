@@ -59,8 +59,8 @@ show.edge.weights(gr)
   
 }
 \author{
-  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}),
-  Rainer Opgen-Rhein (\url{http://opgen-rhein.de}) and
+  Juliane Sch\"afer,
+  Rainer Opgen-Rhein, and
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 \seealso{

@@ -31,7 +31,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
 
 \details{
   For details of the shrinkage estimators we refer to Opgen-Rhein and Strimmer (2006a,b)
-  and Schaefer and Strimmer (2005), as well as to the manual pages of 
+  and Sch\"afer and Strimmer (2005), as well as to the manual pages of 
   \code{\link[corpcor]{pcor.shrink}} and \code{\link[longitudinal]{dyn.pcor}}.
   
   Previously, this function offered several furthers options.
@@ -44,8 +44,8 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
   An estimated partial correlation matrix.
 }
 \author{
-  Rainer Opgen-Rhein (\url{http://opgen-rhein.de}),
-  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}) and
+  Rainer Opgen-Rhein,
+  Juliane Sch\"afer, and
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 \references{
@@ -59,7 +59,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
  WCSB 2006 (June 12-13, 2006, Tampere, Finland). 
  (\url{http://www.cs.tut.fi/wcsb06/})  
   
- Schaefer, J., and Strimmer, K. (2005).  A shrinkage approach to large-scale
+ Sch\"afer, J., and Strimmer, K. (2005).  A shrinkage approach to large-scale
  covariance estimation and implications for functional genomics. 
  Statist. Appl. Genet. Mol. Biol. \bold{4}:32.
  (\url{http://www.bepress.com/sagmb/vol4/iss1/art32/})  

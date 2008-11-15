@@ -3,6 +3,11 @@
              ========================================
 
 
+   		CHANGES IN GeneNet VERSION 1.2.3
+
+- small bug fixed in the plotting routine in ggm.test.edges().  
+  In current versions of R you need to use dev.new() to open a new graphics device.
+
     		CHANGES IN GeneNet VERSION 1.2.2
 
 - a small bug in ggm.make.dot() was corrected. Now variable names

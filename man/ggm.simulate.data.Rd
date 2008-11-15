@@ -23,11 +23,11 @@ ggm.simulate.data(sample.size, pcor)
   A multinormal data matrix.
 }
 \author{
-  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}) and
+  Juliane Sch\"afer and
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 \references{
-  Schaefer, J., and Strimmer, K. (2005).  An empirical Bayes approach to inferring
+  Sch\"afer, J., and Strimmer, K. (2005).  An empirical Bayes approach to inferring
   large-scale gene association networks. \emph{Bioinformatics} \bold{21}:754-764.
 }
 \seealso{\code{\link{ggm.simulate.pcor}}, \code{\link{ggm.estimate.pcor}}.}

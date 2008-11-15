@@ -7,7 +7,7 @@
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
 ### It is made available under the terms of the GNU General Public
-### License, version 2, or at your option, any later version,
+### License, version 3, or at your option, any later version,
 ### incorporated herein by reference.
 ### 
 ### This program is distributed in the hope that it will be
@@ -23,16 +23,16 @@
 
 
 # Fisher's z-transform 
-z.transform <- function(r)
+z.transform = function(r)
 {
   return( atanh(r) )
 }
 
 
 # Hotelling's second-order transform
-hotelling.transform <- function(r, kappa)
+hotelling.transform = function(r, kappa)
 {
-  z <- z.transform(r)
+  z = z.transform(r)
   
   return( z - (3*z+r)/(4*kappa) )
 }

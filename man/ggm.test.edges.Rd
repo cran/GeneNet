@@ -45,7 +45,7 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
   a mixture model is fitted to the partial correlations using \code{\link[fdrtool]{fdrtool}}. 
   This results in (i)  two-sided p-values for the test of non-zero correlation,
   (ii) corresponding posterior probabilities (= 1- local fdr), as well as (iii) tail
-  area-based q-values.  See  Schaefer and Strimmer (2005) for details.
+  area-based q-values.  See  Sch\"afer and Strimmer (2005) for details.
 
   For determining putatative directions on this GGM log-ratios of standardized partial 
   variances re estimated, and subsequently the corresponding (local) fdr values are
@@ -75,12 +75,12 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
   last column (11) contains additional information on the directionality of an edge.
 }
 \author{
-  Rainer Opgen-Rhein (\url{http://opgen-rhein.de}),
-  Juliane Schaefer (\url{http://www.stat.math.ethz.ch/~schaefer/}),
+  Rainer Opgen-Rhein,
+  Juliane Sch\"afer,
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 \references{
-  Schaefer, J., and Strimmer, K. (2005).  An empirical Bayes approach to inferring
+  Sch\"afer, J., and Strimmer, K. (2005).  An empirical Bayes approach to inferring
   large-scale gene association networks. \emph{Bioinformatics} \bold{21}:754-764.
 
   Opgen-Rhein, R., and K. Strimmer. (2007). From correlation to causation networks: 
