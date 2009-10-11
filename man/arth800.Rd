@@ -14,7 +14,7 @@
   of \emph{A. thaliana} during the diurnal cycle.   The 800 genes are
   a subset of the data presented in Smith et al. (2004) and were
   selected for periodicity according to the method implemented
-  in the R package GeneCycle (\url{http://strimmerlab.org/software/genecycle/}).
+  in the R package GeneCycle (\url{http://cran.r-project.org/web/packages/GeneCycle/}).
 }
 
 \usage{

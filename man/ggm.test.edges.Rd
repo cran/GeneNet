@@ -90,7 +90,7 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
 }
 \seealso{
 \code{\link{cor0.test}},
-\code{\link[fdrtool]{fdr.control}},
+\code{\link[fdrtool]{fdrtool}},
 \code{\link{ggm.estimate.pcor}}.
 }
 
