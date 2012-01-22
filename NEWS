@@ -2,9 +2,17 @@
                 RELEASE HISTORY OF GeneNet PACKAGE
              ========================================
 
+
+
+   		CHANGES IN GeneNet VERSION 1.2.5
+
+- NAMESPACE file added.
+- Dependencies updated.
+
+
    		CHANGES IN GeneNet VERSION 1.2.4
 
-- small changes to pass the tests of R version 2.10
+- small changes to pass the tests of R version 2.10.
 - GeneNet now requires corpcor (>= 1.5.3) and longitudinal (>= 1.1.5).
 
 
