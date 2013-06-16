@@ -1,6 +1,6 @@
 ######################################################################
 # This note can be directly run in R.
-# Requires GeneNet 1.2.0 (May 2007)
+# Requires GeneNet 1.2.7 (June 2013)
 #######################################################################
 
 
@@ -57,6 +57,22 @@ t4.net <- extract.network(t4.edges) # prob > 0.8
 t4.net
 
 
+######## produce plots using igraph #############
+
+node.labels <- colnames(tc44)
+igr1 <- ggm.make.igraph( t1.net, node.labels) 
+igr2 <- ggm.make.igraph( t2.net, node.labels)  
+igr3 <- ggm.make.igraph( t3.net, node.labels) 
+igr4 <- ggm.make.igraph( t4.net, node.labels)  
+
+par(mfrow=c(2,2))
+plot(igr1, main="Static, no shrinkage", vertex.label.cex=.6, vertex.size=25)
+plot(igr2, main="Dynamic, no shrinkage", vertex.label.cex=.6, vertex.size=25)
+plot(igr3, main="Static, with shrinkage", vertex.label.cex=.6, vertex.size=25)
+plot(igr4, main="Dynamic, with shrinkage", vertex.label.cex=.6, vertex.size=25)
+par(mfrow=c(1,1))
+
+
 ######## produce plots using graphviz ###########
 
 
@@ -67,34 +83,10 @@ ggm.make.dot(filename="net2.dot", t2.net, node.labels, main="Dynamic")
 ggm.make.dot(filename="net3.dot", t3.net, node.labels, main="Static + Shrink")
 ggm.make.dot(filename="net4.dot", t4.net, node.labels, main="Dynamic + Shrink")
 
-# call graphviz to produce a nice graph
-system("fdp -T svg -o net1.svg net1.dot") # SVG format
-system("fdp -T svg -o net2.svg net2.dot") # SVG format
-system("fdp -T svg -o net3.svg net3.dot") # SVG format
-system("fdp -T svg -o net4.svg net4.dot") # SVG format
+# call graphviz fdp command to produce JPG images
+system("fdp -T jpg -o net1.jpg net1.dot") # JPG format
+system("fdp -T jpg -o net2.jgp net2.dot") # JPG format
+system("fdp -T jpg -o net3.jgp net3.dot") # JPG format
+system("fdp -T jpg -o net4.jpg net4.dot") # JPG format
 
-
-
-######## produce plots using Rgraphviz ###########
-
-node.labels <- colnames(tc44)
-gr1 <- ggm.make.graph( t1.net, node.labels, drop.singles=TRUE) 
-gr2 <- ggm.make.graph( t2.net, node.labels, drop.singles=TRUE)  
-gr3 <- ggm.make.graph( t3.net, node.labels, drop.singles=TRUE) 
-gr4 <- ggm.make.graph( t4.net, node.labels, drop.singles=TRUE)  
-
-gr1
-gr2
-gr3
-gr4
-
-
-# plot networks
-library("Rgraphviz")
-par(mfrow=c(2,2))
-plot(gr1, main="Static, no shrinkage")
-plot(gr2, main="Dynamic, no shrinkage")
-plot(gr3, main="Static, with shrinkage")
-plot(gr4, main="Dynamic, with shrinkage")
-par(mfrow=c(1,1))
 

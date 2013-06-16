@@ -1,6 +1,6 @@
 ######################################################################
 # This note can be directly run in R.
-# Requires GeneNet 1.2.1 (October 2007)
+# Requires GeneNet 1.2.7 (June 2013)
 #######################################################################
 
 
@@ -74,29 +74,26 @@ dim(arth.edges)
 arth.net <- extract.network(arth.edges, method.ggm="number", cutoff.ggm=150)
 
 
-#####################################
-# step 5: plot graph using graphviz #
-#####################################
+######################
+# step 5: plot graph #
+######################
 
-### plot network using graphviz (recommended way)
+
+### plot network via the igraph R package
+
+node.labels <- as.character(1:ncol(arth800.expr))
+igr <- network.make.igraph(arth.net, node.labels)
+
+plot(igr, main="Arabdiopsis Network", layout=layout.fruchterman.reingold,
+ edge.arrow.size=0.5, vertex.size=9, vertex.label.cex=0.7)
+
+
+### plot network using graphviz software
 
 node.labels <- as.character(1:ncol(arth800.expr))
 network.make.dot(filename="arthdyn.dot", arth.net, node.labels, main="Arabdiopsis Network")
 system("fdp -T svg -o arthdyn.svg arthdyn.dot") # SVG format
-
-
-### plot network using Rgraphviz
-
-library("graph")
-
-gr <- ggm.make.graph( arth.net, node.labels, drop.singles=TRUE) 
-gr 
-#Number of Nodes = 107
-#Number of Edges = 150
-
-library("Rgraphviz")
-plot(gr, "neato")
-
+system("fdp -T jpg -o arthdyn.jpg arthdyn.dot") # JPG format
 
 
 ############################
@@ -104,7 +101,7 @@ plot(gr, "neato")
 ############################
 
 # some of the discovered hubs
-sort(degree(gr), decreasing=TRUE)[1:10]
+sort(degree(igr), decreasing=TRUE)[1:10]
 #570  81 783  47 422 558 452 539 738 272
 # 20  17  10   9   9   9   8   8   8   7
 
@@ -122,4 +119,5 @@ arth800.descr[539]
 
 arth800.descr[783]
 #[1] "RNA binding / RNA methyltransferase;
+
 

@@ -4,7 +4,7 @@ export(
 "ggm.estimate.pcor",
 "ggm.list.edges",
 "ggm.make.dot",
-"ggm.make.graph",
+"ggm.make.igraph",
 "ggm.simulate.data",
 "ggm.simulate.pcor",
 "ggm.test.edges",
@@ -12,7 +12,7 @@ export(
 "kappa2n",
 "n2kappa",
 "network.make.dot",
+"network.make.igraph",
 "network.test.edges",
-"show.edge.weights",
 "z.transform"
 )

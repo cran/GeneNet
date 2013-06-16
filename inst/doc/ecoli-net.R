@@ -1,6 +1,6 @@
 #######################################################################
 # This note can be directly run in R.
-# Requires GeneNet 1.2.0 (May 2007)
+# Requires GeneNet 1.2.7 (June 2013)
 #######################################################################
 
 
@@ -61,11 +61,32 @@ ecoli.net <-extract.network(ecoli.edges, method.ggm="number", cutoff.ggm=70)
 ### Step 4: Plot the network
 ###
 
+node.labels <- colnames(ecoli)
+
+
 ##
-## variant 1: produce "dot" file for use with "graphviz"
+## variant 1: use "igraph" R package for plotting
+##            (seehttp://igraph.sourceforge.net/ )
+
+library("igraph") # is automatically loaded with GeneNet 1.2.7
+
+# produce graph (*without* edge labels)
+igr1 <- network.make.igraph(ecoli.net, node.labels)
+plot(igr1, main="Ecoli Network")
+
+# there are many options available in igraph to fine-tune this plot.
+# e.g. smaller node labels and arrow sizes:
+plot(igr1, main="Ecoli Network", vertex.label.cex=0.7, edge.arrow.size=0.5)
+
+# produce graph (*with* edge labels)
+igr2 <- network.make.igraph(ecoli.net, node.labels, show.edge.labels=TRUE)
+plot(igr2, main="Ecoli Network with Partial Correlations")
+
+
+##
+## variant 2: produce "dot" file for use with "graphviz"
 ##            (see http://www.graphviz.org/ )
 
-node.labels <- colnames(ecoli)
 
 # produce dot file (*without* edge labels)
 network.make.dot("ecoli.dot", ecoli.net, node.labels,
@@ -93,30 +114,5 @@ system("fdp -T png -o ecoli.png ecoli.dot") # PNG format
 # if the system() call doesn't work for you (e.g. on Windows) 
 # simply use a GUI frontend for graphviz and 
 # process the dot file from there.
-
-
-##
-## variant 2: use "Rgrapviz" and related packages 
-##            from http://www.bioconductor.org
-
-library("graph")
-
-# generate graph object with all significant edges
-node.labels <- colnames(ecoli)
-gr <- ggm.make.graph( ecoli.net, node.labels, drop.singles=TRUE) 
-gr 
-
-# print vector of edge weights
-show.edge.weights(gr)
-
-
-# plot network 
-library("Rgraphviz")
-plot(gr)
-plot(gr, "neato")
-
-# note: this is not as beautified as the graph obtained
-# directly from graphviz (see variant 1) and it does not contain
-# the putative directions
 
 

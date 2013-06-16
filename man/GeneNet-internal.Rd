@@ -3,7 +3,6 @@
 \alias{ggm.list.edges}
 
 
-
 \title{Internal GeneNet Functions}
 \description{
   Internal GeneNet functions.

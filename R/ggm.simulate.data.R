@@ -1,8 +1,8 @@
-### ggm.simulate.data  (2006-05-14)
+### ggm.simulate.data  (2013-06-16)
 ###
 ###     Simulate GGM data
 ###
-### Copyright 2003-06 Juliane Schaefer and Korbinian Strimmer
+### Copyright 2003-13 Juliane Schaefer and Korbinian Strimmer
 ###
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
@@ -41,11 +41,11 @@ ggm.simulate.data = function(sample.size, pcor)
 # generate multinormal data with given mean vector and covariance 
 myrmvnorm = function(n, mean, sigma)
 {
-  sigsvd = svd(sigma)
-  retval = t(sigsvd$v %*% (t(sigsvd$u) * sqrt(sigsvd$d)))
-  retval = matrix(rnorm(n * ncol(sigma)), nrow = n) %*% retval
-  retval = sweep(retval, 2, mean, "+")
-  
-  return(retval)
+  ev = eigen(sigma, symmetric = TRUE)
+  tmp = ev$vectors %*% ( t(ev$vectors) * sqrt(ev$values) )
+  tmp = matrix(rnorm(n * ncol(sigma)), nrow = n) %*% tmp
+  tmp = sweep(tmp, 2, mean, "+")
+
+  return(tmp)
 }
 

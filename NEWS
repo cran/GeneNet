@@ -3,6 +3,16 @@
              ========================================
 
 
+  		CHANGES IN GeneNet VERSION 1.2.7
+
+- ggm.simulate.data() now uses eigen() to simulate multinormal data.
+- No dependency on Rgraphviz any more. Instead, igraph is used for plotting.
+- new function ggm.make.igraph() and network.make.igraph() to generate 
+  igraph objects have been added.
+- correspondingly, the old functions ggm.make.graph() and show.edge.weights() 
+  are removed, and all examples have been adapted to igraph.
+
+
   		CHANGES IN GeneNet VERSION 1.2.6
 
 - License file removed.
