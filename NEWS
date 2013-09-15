@@ -3,6 +3,12 @@
              ========================================
 
 
+  		CHANGES IN GeneNet VERSION 1.2.8
+
+- small changes to get rid of warnings in R-devel
+- updated dependencies
+
+
   		CHANGES IN GeneNet VERSION 1.2.7
 
 - ggm.simulate.data() now uses eigen() to simulate multinormal data.

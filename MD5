@@ -1,11 +1,11 @@
-93a87d58c62b11bb666fdfa98d6f47a1 *DESCRIPTION
+ab019200b5f46533de1b556005b00dc0 *DESCRIPTION
 ba2432506f8c03afbc5b33328e1d8a9a *NAMESPACE
-1058e04e471a99011d42e71d645231e2 *NEWS
+6ef580a8e524e4f5052ac61bb8f5b271 *NEWS
 40eefba9fb9598031950d4d1a9887333 *R/cor0.test.R
 5fff3a60a53facc3bf5057e150f19699 *R/extract.network.R
 d600c0743866735e7b1994797b5579c8 *R/ggm.estimate.pcor.R
 2323dc510e4085f101181ecbca296b95 *R/ggm.make.dot.R
-d4c87d1c5279532e7accbedd70377ae3 *R/ggm.make.igraph.R
+898e2c4e93840677af6670572bd93599 *R/ggm.make.igraph.R
 98cb108ca66ddd8eccb41586555dbe86 *R/ggm.simulate.data.R
 597ebcb64afdf424fac83df79f8ffb10 *R/ggm.simulate.pcor.R
 5788588a6dd5d4705df06497a1bd674b *R/ggm.test.edges.R

@@ -1,4 +1,4 @@
-### ggm.make.igraph  (2013-06-16)
+### ggm.make.igraph  (2013-09-15)
 ###
 ###   Construct "igraph" object from given network
 ###
@@ -34,8 +34,6 @@ network.make.igraph = function(edge.list, node.labels, show.edge.labels = FALSE)
 
 ggm.make.igraph = function(edge.list, node.labels, show.edge.labels = FALSE)
 {
-  require("igraph")
-
   V <- unique(node.labels)
   if (length(V) != length(node.labels)) {
     stop("Duplicate node labels encountered. Node labels must be unique!")
