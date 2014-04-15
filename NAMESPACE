@@ -16,3 +16,6 @@ export(
 "network.test.edges",
 "z.transform"
 )
+import(
+"corpcor", "fdrtool", "igraph", "longitudinal"
+)
