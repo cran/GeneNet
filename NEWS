@@ -3,6 +3,13 @@
              ========================================
 
 
+
+  		CHANGES IN GeneNet VERSION 1.2.10
+
+- change of maintainer email address.
+- corrections to index.html file in inst/doc folder.
+
+
   		CHANGES IN GeneNet VERSION 1.2.9
 
 - added import() statement in NAMESPACE file to get rid of warning
