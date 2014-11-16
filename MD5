@@ -1,6 +1,6 @@
-74eca0ab74f001779490af6c4efcd1e3 *DESCRIPTION
+93e9fc178d9979112542bc336f409ae5 *DESCRIPTION
 9ef59c7fe10bb4ff306fa45fcb765267 *NAMESPACE
-2b5e9265ea552bbf08ab3730ffcda261 *NEWS
+8a2df19598f95c10b28e1e765d6c0ecd *NEWS
 40eefba9fb9598031950d4d1a9887333 *R/cor0.test.R
 5fff3a60a53facc3bf5057e150f19699 *R/extract.network.R
 d600c0743866735e7b1994797b5579c8 *R/ggm.estimate.pcor.R
@@ -13,10 +13,10 @@ dde840ad9c057dedc0dc52ebe5cb371b *R/kappa2n.R
 08250125767eb4f8b2f7bdf4a2028d6d *R/z.transform.R
 f26ec3d03b4688f1c15a02246a13527a *data/arth800.rda
 77547bb4ced5fcf08a4838ac9313aca4 *data/ecoli.rda
-845b1f268719bbb6422f0b8d697d4eb5 *inst/doc/arabidopsis-net.R
-d855fc3c7be498f69195066b61e78513 *inst/doc/ecoli-net.R
-d8a9c109fa1045c411d06d1fee47dbe9 *inst/doc/index.html
-9b86f34ba0886a717e3f78556b978bce *inst/doc/tcell-net.R
+14e790934d7aeeef1f0e8d53bcf17d80 *inst/doc/arabidopsis-net.R
+3110d12854d62e9f9e74a6b0cf46dad8 *inst/doc/ecoli-net.R
+2389fe6f6388245d1c2c582a41ce2432 *inst/doc/index.html
+ec25d4f4e04f62967b31060087b2d4d9 *inst/doc/tcell-net.R
 39c00d53099297159499453a414867af *man/GeneNet-internal.Rd
 9c4486406fe2dbc86a53571ab759a5f5 *man/GeneNet.package.Rd
 38639dcceab58263d7a3a3f452dd7005 *man/arth800.Rd
