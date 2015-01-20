@@ -2,6 +2,12 @@
                 RELEASE HISTORY OF GeneNet PACKAGE
              ========================================
 
+
+  		CHANGES IN GeneNet VERSION 1.2.12
+
+- maintainance update to fix bad URL (as requested by C core team)
+
+
   		CHANGES IN GeneNet VERSION 1.2.11
 
 - the example files have been converted into R notebook format

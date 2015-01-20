@@ -1,6 +1,6 @@
-93e9fc178d9979112542bc336f409ae5 *DESCRIPTION
+c2897e9f3890102dfb3f4dec47c35bbc *DESCRIPTION
 9ef59c7fe10bb4ff306fa45fcb765267 *NAMESPACE
-8a2df19598f95c10b28e1e765d6c0ecd *NEWS
+819130463fb9e63adc57ece5a54bd232 *NEWS
 40eefba9fb9598031950d4d1a9887333 *R/cor0.test.R
 5fff3a60a53facc3bf5057e150f19699 *R/extract.network.R
 d600c0743866735e7b1994797b5579c8 *R/ggm.estimate.pcor.R
@@ -23,7 +23,7 @@ ec25d4f4e04f62967b31060087b2d4d9 *inst/doc/tcell-net.R
 41f1693c165f75f7b22fe3a2496726a1 *man/cor0.test.Rd
 646dae5f921ed162b7fad46cba071b92 *man/ecoli.Rd
 03ad0664c40805e890e8f276eeca47a6 *man/ggm.estimate.pcor.Rd
-e82c6ffefbd744417b0e8bc33277eee5 *man/ggm.make.igraph.Rd
+0b6fd01842075b343e6eefe3a656fdbb *man/ggm.make.igraph.Rd
 0f27c07340e1e6ba91b1d9fc35d5bbed *man/ggm.simulate.data.Rd
 f421d52aa13fe4a337b36e9ba47cc747 *man/ggm.simulate.pcor.Rd
 35c84661a2c8a0171d146732f9511fb6 *man/ggm.test.edges.Rd

@@ -40,7 +40,7 @@ network.make.dot(filename, edge.list, node.labels, main=NULL, show.edge.labels=F
 \details{
   The above functions provide two different ways for plotting networks computed with GeneNet.
 
-\code{ggm.make.igraph} and \code{network.make.igraph}  use the R package \code{igraph} for plotting - see \url{hhttp://igraph.sourceforge.net/}.
+\code{ggm.make.igraph} and \code{network.make.igraph}  use the R package \code{igraph} for plotting - see \url{http://igraph.sourceforge.net/}.
 
 \code{ggm.make.dot} and \code{network.make.dot} produce 'dot' files for use with the \code{graphviz} software - see \url{http://www.graphviz.org}.
 
