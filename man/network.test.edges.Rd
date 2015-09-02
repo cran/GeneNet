@@ -1,12 +1,10 @@
-\name{ggm.test.edges}
-\alias{ggm.test.edges}
+\name{network.test.edges}
 \alias{network.test.edges}
 \alias{extract.network}
 
 \title{Graphical Gaussian Models: Assess Significance of Edges (and Directions)}
 
 \usage{
-ggm.test.edges(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
 network.test.edges(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
 extract.network(network.all, method.ggm=c("prob", "qval","number"), 
       cutoff.ggm=0.8, method.dir=c("prob","qval","number", "all"), 
@@ -28,13 +26,11 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
   \item{verbose}{print information on the number of significant edges etc.}
 }
 \description{
- \code{ggm.test.edges} returns a data frame containing all edges listed
+ \code{network.test.edges} returns a data frame containing all edges listed
   in order of the magnitude of the partial correlation associated with each edge.
   If \code{fdr=TRUE} then in addition the
   p-values, q-values and posterior probabilities (=1 - local fdr) for each potential 
   edge are computed.
-
- \code{network.test.edges} is the same function as \code{ggm.test.edges}.
 
  \code{extract.network} returns a data frame with a subset of significant
  edges. 
@@ -52,8 +48,8 @@ extract.network(network.all, method.ggm=c("prob", "qval","number"),
   computed - see Opgen-Rhein and Strimmer (2007).
 }
 \value{
-  \code{ggm.test.edges} and \code{network.test.edges} return
-   sorted data frame with the following columns:
+  \code{network.test.edges} returns a
+    data frame with the following columns:
   
   \item{pcor}{correlation (from r.mat)}
   \item{node1}{first node connected to edge}
@@ -106,7 +102,7 @@ inferred.pcor <- ggm.estimate.pcor(ecoli)
 
 # p-values, q-values and posterior probabilities for each potential edge 
 #
-test.results <- ggm.test.edges(inferred.pcor)
+test.results <- network.test.edges(inferred.pcor)
 
 # show best 20 edges (strongest correlation)
 test.results[1:20,]

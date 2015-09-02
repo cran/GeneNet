@@ -3,14 +3,25 @@
              ========================================
 
 
+ 		CHANGES IN GeneNet VERSION 1.2.13
+
+- added import statement as required by R-devel.
+- removed dependency on igraph, as igraph now has too many
+  subsequent mandatory dependencies (>20 packages).
+- instead use we now use again the "graph" and "Rgraphviz" from Bioconductor
+  for graph modeling and plotting. 
+- All example scripts and related functions
+  in GeneNet have been updated and modified accordingly.
+
+
   		CHANGES IN GeneNet VERSION 1.2.12
 
-- maintainance update to fix bad URL (as requested by C core team)
+- maintainance update to fix bad URL (as requested by R core team).
 
 
   		CHANGES IN GeneNet VERSION 1.2.11
 
-- the example files have been converted into R notebook format
+- the example files have been converted into R notebook format.
 - change of maintainer email address.
 
 

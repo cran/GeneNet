@@ -51,7 +51,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
 \references{
  Opgen-Rhein, R., and K. Strimmer. 2006a. Inferring gene dependency networks from 
  genomic longitudinal data: a functional data approach.
- REVSTAT \bold{4}:53-65. (\url{http://http://www.ine.pt/revstat/}) 
+ REVSTAT \bold{4}:53-65. (\url{https://www.ine.pt/revstat/tables.html}) 
 
  Opgen-Rhein, R., and K. Strimmer. 2006b. Using regularized dynamic correlation 
  to infer gene dependency networks from time-series microarray data. 

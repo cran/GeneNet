@@ -41,13 +41,8 @@ ggm.list.edges = function(r.mat)
 }
 
 
-network.test.edges = function(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
-{
-  return( ggm.test.edges(r.mat, fdr=fdr, direct=direct, plot=plot, ...) )
-}
-
 # assign p-values, q-values and posterior probabilities to each edge
-ggm.test.edges = function(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
+network.test.edges = function(r.mat, fdr=TRUE, direct=FALSE, plot=TRUE, ...)
 {
    pcor = sm2vec(r.mat)
    indexes = sm.index(r.mat)

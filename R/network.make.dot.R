@@ -1,4 +1,4 @@
-### ggm.make.dot  (2008-08-18)
+### network.make.dot  (2008-08-18)
 ###
 ###   Generate Dot File For Graphviz Network Plot
 ###
@@ -21,15 +21,8 @@
 ### Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
 ### MA 02111-1307, USA
 
-network.make.dot = function(filename, edge.list, node.labels, 
-          main=NULL, show.edge.labels=FALSE)
-return(
-  ggm.make.dot(filename=filename, edge.list=edge.list, 
-     node.labels=node.labels, 
-     main=main, show.edge.labels=show.edge.labels) 
-)
 
-ggm.make.dot = function(filename, edge.list, node.labels, 
+network.make.dot = function(filename, edge.list, node.labels, 
           main=NULL, show.edge.labels=FALSE)
 {
    f = file(filename, "w")  # open an output file connection
