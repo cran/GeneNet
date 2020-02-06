@@ -26,7 +26,6 @@ num.nodes(gr)
   \item{show.edge.labels}{plot correlation values as edge labels (default: FALSE)}
   \item{drop.singles}{remove unconnected nodes}
   \item{gr}{a graph object}
-  \item{\dots}{options passed to \code{plot} functions}
 }
 \description{
   \code{network.make.dot} converts an edge list as obtained by \code{\link{network.test.edges}}

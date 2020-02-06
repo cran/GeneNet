@@ -3,6 +3,11 @@
              ========================================
 
 
+		CHANGES IN GeneNet VERSION 1.2.14
+
+- bug-fix in documentation to fix warnings/error by R-devel.
+
+
  		CHANGES IN GeneNet VERSION 1.2.13
 
 - added import statement as required by R-devel.

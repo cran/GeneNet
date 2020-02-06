@@ -57,7 +57,6 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
  to infer gene dependency networks from time-series microarray data. 
  The 4th International Workshop on Computational Systems Biology,
  WCSB 2006 (June 12-13, 2006, Tampere, Finland). 
- (\url{http://www.cs.tut.fi/wcsb06/})  
   
  Sch\"afer, J., and Strimmer, K. (2005).  A shrinkage approach to large-scale
  covariance estimation and implications for functional genomics. 
