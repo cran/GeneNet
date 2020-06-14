@@ -1,6 +1,6 @@
 Package: GeneNet
-Version: 1.2.14
-Date: 2020-02-06
+Version: 1.2.15
+Date: 2020-06-14
 Title: Modeling and Inferring Gene Networks
 Author: Juliane Schaefer, Rainer Opgen-Rhein, and
         Korbinian Strimmer.
@@ -17,7 +17,7 @@ Description: Analyzes gene expression
   assignment of putative directions).  
 License: GPL (>= 3)
 URL: http://strimmerlab.org/software/genenet/
+Packaged: 2020-06-14 14:15:22 UTC; strimmer
 NeedsCompilation: no
-Packaged: 2020-02-06 17:21:04 UTC; strimmer
 Repository: CRAN
-Date/Publication: 2020-02-06 18:00:02 UTC
+Date/Publication: 2020-06-14 15:30:02 UTC

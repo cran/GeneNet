@@ -19,7 +19,8 @@ cor0.test(r, kappa, method=c("student", "dcor0", "ztransform"))
   student-t distributed with \code{df=kappa-1}.  This method is exact.
   
   If \code{method="dcor0"} is selected then the p-value is computed
-  directly from the distribution function \code{\link[fdrtool]{pcor0}}.
+  directly from the null distribution of the (partial) correlation
+  (see \code{\link[fdrtool]{dcor0}}).
   This method is also exact.
  
   If \code{method="ztransform"} is selected then the p-value is computed
@@ -38,8 +39,7 @@ cor0.test(r, kappa, method=c("student", "dcor0", "ztransform"))
   Korbinian Strimmer (\url{http://strimmerlab.org}).
 }
 
-\seealso{\code{\link[fdrtool]{dcor0}}, 
-         \code{\link{kappa2n}}, \code{\link{z.transform}}.}
+\seealso{ \code{\link[fdrtool]{dcor0}},  \code{\link{kappa2n}}, \code{\link{z.transform}}.}
 
 \examples{
 # load GeneNet library

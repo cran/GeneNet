@@ -1,8 +1,8 @@
-### ggm.simulate.pcor  (2004-09-15)
+### ggm.simulate.pcor  (2020-06-13)
 ###
 ###     Simulate GGM Networks
 ###
-### Copyright 2003-04 Juliane Schaefer and Korbinian Strimmer
+### Copyright 2003-20 Juliane Schaefer and Korbinian Strimmer
 ###
 ###
 ### This file is part of the `GeneNet' library for R and related languages.
@@ -23,9 +23,9 @@
 
 
 # chose random GGM network
-#  returns a positive definite partial correlation matrix
+#  returns a partial correlation matrix (with diagonal 1)
 #  with the given proportion of non-zero elements
-ggm.simulate.pcor = function(num.nodes, etaA=0.05)
+ggm.simulate.pcor = function(num.nodes, etaA=0.05, stdprec=FALSE)
 {
   # num.nodes:  number of nodes in the network
   # etaA:          proportion of edges in the graph
@@ -62,8 +62,14 @@ ggm.simulate.pcor = function(num.nodes, etaA=0.05)
   {
     diag(precision)[i] = sum(abs(precision[,i]))+eps	
   }	
-  pcor = cov2cor(precision)
+  pcor = cov2cor(precision) # standardized precision matrix (positive definite)
 
- 
+  if (!stdprec)
+  {
+    # change signs of the off-diagonal entries to obtain pcor matrix
+    pcor = -pcor
+    diag(pcor) = -diag(pcor) # keep positive sign on diagonal
+  } 
+
   return(pcor)
 }

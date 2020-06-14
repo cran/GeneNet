@@ -13,7 +13,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
      Available options are "static" (the default) and "dynamic" - both
      are shrinkage methods.}
   \item{\dots}{options passed to \code{\link[corpcor]{pcor.shrink}}
-         and to \code{\link[longitudinal]{dyn.pcor}}.}
+         and to \code{\link{dyn.pcor}} (in the \code{longitudinal} package).}
    
 }
 \description{
@@ -23,7 +23,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
   
   The default method "statics" employs the function 
   \code{\link[corpcor]{pcor.shrink}} whereas the "dynamic" method relies on 
-  \code{\link[longitudinal]{dyn.pcor}}.  The difference between the two estimators
+   \code{\link{dyn.pcor}} (in the \code{longitudinal} package).  The difference between the two estimators
   is that the latter takes  the spacings between time points into account
   if the input are multiple time course data (these must be provided as 
   \code{\link[longitudinal]{longitudinal}} object).  
@@ -32,7 +32,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
 \details{
   For details of the shrinkage estimators we refer to Opgen-Rhein and Strimmer (2006a,b)
   and Sch\"afer and Strimmer (2005), as well as to the manual pages of 
-  \code{\link[corpcor]{pcor.shrink}} and \code{\link[longitudinal]{dyn.pcor}}.
+  \code{\link{pcor.shrink}} (in the \code{corpcor} package) and \code{\link{dyn.pcor}} (in the \code{longitudinal} package).
   
   Previously, this function offered several furthers options.
   The old option called "shrinkage" corresponds to the present "static" option.
@@ -65,7 +65,7 @@ ggm.estimate.pcor(x, method = c("static", "dynamic"), \dots)
   
 }
 \seealso{\code{\link{ggm.simulate.data}}, \code{\link{ggm.estimate.pcor}},
-\code{\link[corpcor]{pcor.shrink}}, and \code{\link[longitudinal]{dyn.pcor}}.}
+\code{\link[corpcor]{pcor.shrink}}, and \code{\link{dyn.pcor}} (in the \code{longitudinal} package)}
 
 \examples{
 \dontrun{

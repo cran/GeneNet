@@ -4,26 +4,33 @@
 \title{Graphical Gaussian Models: Simulation of Networks}
 
 \usage{
-ggm.simulate.pcor(num.nodes, etaA=0.05)
+ggm.simulate.pcor(num.nodes, etaA=0.05, stdprec=FALSE)
 }
 
 \arguments{
   \item{num.nodes}{number of nodes in the network}
   \item{etaA}{fraction of edges with non-zero partial correlation (default: 0.05)}
+  \item{stdprec}{return standardised precision matrix, rather than matrix of partial correlations}
 }
 \description{
   \code{ggm.simulate.pcor} generates a random matrix of partial correlations that 
   corresponds to a GGM network of a given size (\code{num.nodes})
-  with a specified fraction of non-zero edges.
+  with a specified fraction of non-zero edges.  The diagonal entries of the output matrix contain 1.
+
+  If \code{stdprec=TRUE} then the standardised precision matrix is returned instead of the patrix of partial
+  correlations.
 }
 
 \details{
-  The output of \code{ggm.simulate.pcor} is always positive definite. This is ensured
-  by using diagonally dominant matrices when generating the random GGM model.  For
-  the full algorithm see Sch\"afer and Strimmer (2005).
+  The simulation of the partial correlation matrix works by generating a diagonally dominant matrix
+  as a positive definite precision matrix (inverse covariance matrix), which is 
+  subsequently standardized and transformed into the matrix of partial correlations.
+  For the full algorithm see Sch\"afer and Strimmer (2005).
 }
 \value{
-  A positive definite partial correlation matrix.
+  A positive partial correlation matrix (diagonal 1) with positive definite underlying precision matrix.
+
+  If \code{stdprec=TRUE} then the standardised precision matrix is returned instead.
 }
 \author{
   Juliane Sch\"afer and

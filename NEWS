@@ -3,6 +3,13 @@
              ========================================
 
 
+		CHANGES IN GeneNet VERSION 1.2.15
+
+- new option "stdprec" in ggm.simulate.pcor() to choose between 
+  returning the positive definite standardized precision matrix
+  or the corresponding partial correlation matrix with diagonal 1.
+
+
 		CHANGES IN GeneNet VERSION 1.2.14
 
 - bug-fix in documentation to fix warnings/error by R-devel.
