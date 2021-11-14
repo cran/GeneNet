@@ -34,8 +34,7 @@ data(arth800)
 
 \source{
   The micoarray experiments were performed in the laboratory of S. Smith (Edinburgh).
-  The data are available from the 
-  NASCArrays database (\url{http://affymetrix.arabidopsis.info/} under 
+  The data are available from the NASCArrays database under 
   experiment reference number NASCARRAYS-60.
 }
 

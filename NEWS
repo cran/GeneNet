@@ -3,6 +3,11 @@
              ========================================
 
 
+		CHANGES IN GeneNet VERSION 1.2.16
+
+- updated URLs.
+
+
 		CHANGES IN GeneNet VERSION 1.2.15
 
 - new option "stdprec" in ggm.simulate.pcor() to choose between 

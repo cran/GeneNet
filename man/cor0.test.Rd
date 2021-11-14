@@ -36,7 +36,7 @@ cor0.test(r, kappa, method=c("student", "dcor0", "ztransform"))
 
 \author{
   Juliane Sch\"afer and
-  Korbinian Strimmer (\url{http://strimmerlab.org}).
+  Korbinian Strimmer (\url{https://strimmerlab.github.io}).
 }
 
 \seealso{ \code{\link[fdrtool]{dcor0}},  \code{\link{kappa2n}}, \code{\link{z.transform}}.}

@@ -42,10 +42,10 @@ num.nodes(gr)
 }
 
 \details{
-  For network plotting the software "graphviz" is employed (\url{http://www.graphviz.org}).
+  For network plotting the software "graphviz" is employed (\url{https://www.graphviz.org}).
 
   For the functions \code{network.plot.graph} and \code{network.make.graph}  the "graph" and "Rgraphviz" 
-  packages from the  Bioconductor project (\url{http://www.bioconductor.org}) is required. 
+  packages from the  Bioconductor project (\url{https://www.bioconductor.org}) is required. 
  
 }
 \value{
@@ -64,7 +64,7 @@ num.nodes(gr)
 \author{
   Juliane Sch\"afer,
   Rainer Opgen-Rhein, and
-  Korbinian Strimmer (\url{http://strimmerlab.org}).
+  Korbinian Strimmer (\url{https://strimmerlab.github.io}).
 }
 \seealso{
 \code{\link{network.test.edges}}, \code{plot.graph}.

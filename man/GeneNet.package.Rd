@@ -12,7 +12,7 @@
   assignment of putative directions).  
 }
 
-\author{Juliane Sch\"afer, Rainer Opgen-Rhein, and Korbinian Strimmer (\url{http://strimmerlab.org/})}
+\author{Juliane Sch\"afer, Rainer Opgen-Rhein, and Korbinian Strimmer (\url{https://strimmerlab.github.io/})}
 \keyword{multivariate}
 \seealso{
 \code{\link{ggm.estimate.pcor}, \link{network.test.edges}, \link{extract.network}, \link{network.make.dot}.}
