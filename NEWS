@@ -2,6 +2,11 @@
                 RELEASE HISTORY OF GeneNet PACKAGE
              ========================================
 
+        CHANGES IN GeneNet VERSION 1.2.17
+
+- updated Authors@R field.
+- missing package anchors added in documentation.
+
 
 		CHANGES IN GeneNet VERSION 1.2.16
 
@@ -93,15 +98,15 @@
 - small bug fixed in the plotting routine in ggm.test.edges().  
   In current versions of R you need to use dev.new() to open a new graphics device.
 
-    		CHANGES IN GeneNet VERSION 1.2.2
+
+    	CHANGES IN GeneNet VERSION 1.2.2
 
 - a small bug in ggm.make.dot() was corrected. Now variable names
   such as "1776837_at" can be plotted properly with graphviz 
   (this bug fix was kindly provided by Colin Gillespie, Newcastle).
   
 
-     		CHANGES IN GeneNet VERSION 1.2.1
-
+     	CHANGES IN GeneNet VERSION 1.2.1
 
 - a number of small internal changes were needed to adjust
   GeneNet to the new version of the fdrtool package (version 1.2.0).
@@ -109,8 +114,7 @@
 - some parts of the documentation were updated.
 
 	
-     		CHANGES IN GeneNet VERSION 1.2.0
-
+     	CHANGES IN GeneNet VERSION 1.2.0
 
 Newly added:
 - this version implements the approach described in Opgen-Rhein and 
@@ -150,9 +154,7 @@ Changes:
   the "fdrtool" package, so the dependency from "locfdr" was removed
 
 
-
 		CHANGES IN GeneNet VERSION 1.0.1
-
 
 - function cor.fit.mixture() was adapted to API changes
   in "locfdr" package
@@ -161,8 +163,7 @@ Changes:
 
 		CHANGES IN GeneNet VERSION 1.0.0
 
-
-This is the first standalone release (9 August 2006).
-Previously, the functions available in this package were part of
-the GeneTS package (version 2.10.2).
+- This is the first standalone release (9 August 2006). 
+  Previously, the functions available in this package were
+  part of the GeneTS package (version 2.10.2).
       

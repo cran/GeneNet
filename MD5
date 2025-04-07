@@ -1,6 +1,6 @@
-9dec70cb5c66c91b49931cba8e6c0b23 *DESCRIPTION
+d063f125536485b50cd31b7c544e304e *DESCRIPTION
 f9d5ff05caa7ccd6c660949aa4da5ee0 *NAMESPACE
-379aaf0b9b1e20959bbd6680de2deaec *NEWS
+21dc00daca913c8cda375fe21f9c74b0 *NEWS
 40eefba9fb9598031950d4d1a9887333 *R/cor0.test.R
 5fff3a60a53facc3bf5057e150f19699 *R/extract.network.R
 d600c0743866735e7b1994797b5579c8 *R/ggm.estimate.pcor.R
@@ -12,7 +12,7 @@ f0f69004a73813311912d702150fe23c *R/network.make.graph.R
 ccd5bf0f6d6d0f02c2fb702c720313b1 *R/network.test.edges.R
 08250125767eb4f8b2f7bdf4a2028d6d *R/z.transform.R
 f26ec3d03b4688f1c15a02246a13527a *data/arth800.rda
-daf05358a560875946d8a287b899c0c6 *data/ecoli.rda
+26a7228c1a1003dda9120595c1a22ac6 *data/ecoli.rda
 020327ff2b88c580a9f8c42909e04d6b *inst/doc/arabidopsis-net.R
 5cabb07953490b9404d263a6d492478e *inst/doc/ecoli-net.R
 2389fe6f6388245d1c2c582a41ce2432 *inst/doc/index.html
@@ -22,7 +22,7 @@ b5aed74d554c2f01ac7786df3226e22a *man/GeneNet.package.Rd
 e92cf1b428c7095736aed0199f688b8c *man/arth800.Rd
 ef5eac8e893e43a843f1f8c604fd9578 *man/cor0.test.Rd
 646dae5f921ed162b7fad46cba071b92 *man/ecoli.Rd
-80eed011cf936a061f21eb03e25daaef *man/ggm.estimate.pcor.Rd
+f32f4b3a23269bf34cda7328fad6b115 *man/ggm.estimate.pcor.Rd
 44b98b93685b355df93bd48b106623c6 *man/ggm.simulate.data.Rd
 5ada50867915a3b679f609cf315024a9 *man/ggm.simulate.pcor.Rd
 46d134cf8e243204422f3492aa9a75a7 *man/kappa2n.Rd

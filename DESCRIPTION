@@ -1,12 +1,13 @@
 Package: GeneNet
-Version: 1.2.16
-Date: 2021-11-14
+Version: 1.2.17
+Date: 2025-04-08
 Title: Modeling and Inferring Gene Networks
-Author: Juliane Schaefer, Rainer Opgen-Rhein, and
-        Korbinian Strimmer.
-Maintainer: Korbinian Strimmer <strimmerlab@gmail.com>
-Depends: R (>= 3.0.2), corpcor (>= 1.6.10), longitudinal (>= 1.1.13),
-        fdrtool (>= 1.2.17)
+Authors@R: c(person("Juliane", "Schaefer", role = "aut"),
+  person("Rainer", "Opgen-Rhein", role = "aut"),
+  person("Korbinian", "Strimmer", role = c("aut", "cre"),
+  email = "strimmerlab@gmail.com"))
+Depends: R (>= 3.4.0), corpcor (>= 1.6.10), longitudinal (>= 1.1.13),
+        fdrtool (>= 1.2.18)
 Suggests: graph, Rgraphviz
 Imports: stats, grDevices
 Description: Analyzes gene expression
@@ -18,6 +19,10 @@ Description: Analyzes gene expression
 License: GPL (>= 3)
 URL: https://strimmerlab.github.io/software/genenet/
 NeedsCompilation: no
-Packaged: 2021-11-14 17:27:22 UTC; strimmer
+Packaged: 2025-04-07 22:45:13 UTC; strimmer
+Author: Juliane Schaefer [aut],
+  Rainer Opgen-Rhein [aut],
+  Korbinian Strimmer [aut, cre]
+Maintainer: Korbinian Strimmer <strimmerlab@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-11-14 18:10:01 UTC
+Date/Publication: 2025-04-07 23:10:02 UTC
